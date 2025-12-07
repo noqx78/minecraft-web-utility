@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import * as skinview3d from "skinview3d";
 import { ModeToggle } from "@/components/ThemeSwitcher";
 import { Input } from "@/components/ui/input";
@@ -113,8 +114,12 @@ export default function Home() {
                 a.click();
               }}
             >
-              Download 3D Totem
+              Download Totem
             </Button>
+
+            <p className="mt-4">Totem Preview</p>
+            <Image alt="totem pewview" width={256} height={256} src="/3dTotemPreview.png"/>
+            {/* 
                         <Button
               onClick={() => {
                 if (!viewerRef.current) return;
@@ -126,7 +131,7 @@ export default function Home() {
               }}
             >
               Download 2D Totem
-            </Button>
+            </Button>  */}
           </div>
         </div>
 
@@ -142,7 +147,7 @@ export default function Home() {
 
 
 
-<footer className="bg-neutral-primary-soft rounded-2xl shadow-xs border b border-default m-4">
+<footer className="footer-fixed-bottom-lifted bg-neutral-primary-soft rounded-2xl shadow-xs border border-default m-4">
     <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
       <span className="text-sm text-body sm:text-center">© {year} <a href="https://x.com/noqx78" className="hover:underline">noqx</a>. All Rights Reserved.
     </span>
@@ -161,7 +166,7 @@ export default function Home() {
         <AlertDialogHeader>
           <AlertDialogTitle>Privacy Policy</AlertDialogTitle>
           <AlertDialogDescription>
-We respect your privacy. Aside from your IP address, which is temporarily collected by Vercel Analytics for hosting services, no data is saved or collected. Any information you enter (e.g., username, settings) is strictly client-side and will never be stored in a database or shared with third parties.
+We respect your privacy. no data is saved or collected. Any information you enter (e.g., username, settings) is strictly client-side and will never be stored in a database or shared with third parties.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
