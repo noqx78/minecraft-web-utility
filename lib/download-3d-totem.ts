@@ -1,7 +1,7 @@
 import JSZip from 'jszip';
 
 
-const RESOURCE_PACK_NAME = "3d Totem Texutre Pack"; 
+const RESOURCE_PACK_NAME = ""; 
 
 const TEXTURE_PATH_IN_ZIP = `assets/minecraft/textures/item/totem.png`;
 
@@ -132,7 +132,7 @@ export async function downloadTotemPack(username: string): Promise<void> {
         const downloadUrl = URL.createObjectURL(zipBlob);
         const link = document.createElement('a');
         link.href = downloadUrl;
-        link.download = `${RESOURCE_PACK_NAME}_${username}.zip`; 
+        link.download = `${RESOURCE_PACK_NAME}${username}.zip`; 
         
         document.body.appendChild(link);
         link.click();
