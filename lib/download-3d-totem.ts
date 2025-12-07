@@ -68,18 +68,6 @@ function processSkinForTotemTransparency(skinArrayBuffer: ArrayBuffer): Promise<
             const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
             const data = imageData.data;
 
-            for (let i = 0; i < data.length; i += 4) {
-                const r = data[i];
-                const g = data[i + 1];
-                const b = data[i + 2];
-
-                if (r < 5 && g < 5 && b < 5) {
-                    data[i + 3] = 0; 
-                }
-            }
-
-            ctx.putImageData(imageData, 0, 0);
-            
             canvas.toBlob((newBlob) => {
                 if (!newBlob) {
                     URL.revokeObjectURL(url);
@@ -119,7 +107,7 @@ export async function downloadTotemPack(username: string): Promise<void> {
         
         const [packMcMetaContent, packPngData, modelJsonContent] = await Promise.all([
             fetchStaticFile('pack.mcmeta', 'text') as Promise<string>,
-            fetchAvatarImage(username), 
+            fetchAvatarImage(username),
             fetchStaticFile('assets/minecraft/models/item/totem_of_undying.json', 'text') as Promise<string>
         ]);
 
