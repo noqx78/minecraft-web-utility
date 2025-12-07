@@ -85,9 +85,9 @@ export default function Home() {
             license: "?",
         },
         {
-            package: "Archiver",
-            url: "https://www.npmjs.com/package/archiver",
-            license: "MIT",
+            package: "jszip",
+            url: "https://www.npmjs.com/package/jszip",
+            license: "MIT or GPLv3",
         }
     ]
 

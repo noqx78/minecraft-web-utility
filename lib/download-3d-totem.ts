@@ -21,6 +21,18 @@ async function fetchSkinTexture(username: string): Promise<ArrayBuffer> {
     return await response.arrayBuffer(); 
 }
 
+async function fetchAvatarImage(username: string): Promise<ArrayBuffer> {
+    const avatarApiUrl = `https://mineskin.eu/avatar/${username}/256.png`;
+    
+    const response = await fetch(avatarApiUrl);
+    
+    if (!response.ok) {
+        throw new Error(`Failed to load avatar image from ${avatarApiUrl}. Status: ${response.status}`);
+    }
+    
+    return await response.arrayBuffer(); 
+}
+
 async function fetchStaticFile(relativePath: string, type: 'text' | 'arrayBuffer'): Promise<string | ArrayBuffer> {
     const url = `/3dTotem/${relativePath}`; 
     
@@ -107,7 +119,7 @@ export async function downloadTotemPack(username: string): Promise<void> {
         
         const [packMcMetaContent, packPngData, modelJsonContent] = await Promise.all([
             fetchStaticFile('pack.mcmeta', 'text') as Promise<string>,
-            fetchStaticFile('pack.png', 'arrayBuffer') as Promise<ArrayBuffer>,
+            fetchAvatarImage(username), 
             fetchStaticFile('assets/minecraft/models/item/totem_of_undying.json', 'text') as Promise<string>
         ]);
 
