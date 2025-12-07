@@ -12,6 +12,7 @@ export default function Home() {
 
   return (
     <div>
+      <h1>redirecting...</h1>
       <p>work in progress</p>
     </div>
   );

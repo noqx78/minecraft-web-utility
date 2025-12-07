@@ -75,12 +75,17 @@ export default function Home() {
   {
     package: "skinview3d",
     url: "https://github.com/bs-community/skinview3d",
-    license: "MIT license",
+    license: "MIT",
   },
   {
     package: "API",
     url: "https://mineskin.eu",
     license: "?",
+  },
+    {
+    package: "Archiver",
+    url: "https://www.npmjs.com/package/archiver",
+    license: "MIT",
   }
 ]
 
